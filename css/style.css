@@ -1,0 +1,92 @@
+.add-button {
+	background: none repeat scroll 0 0 #e0e0e0;
+	border: 0 none;
+	border-radius: 2px;
+	font-size: 13px;
+	font-weight: 600;
+	margin-left: 20px;
+	padding: 4px 25px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: none;
+	top: 0px;
+	cursor: pointer;
+}
+#toplevel_page_onlineclasspayments-index img { 
+	max-width:20px;	
+}
+
+table.dp {
+	border: 2px solid #999999;
+	border-collapse: collapse;	
+}
+
+table.dp tr th, table.dp tfoot tr td{
+	background-color:#CCCCCC;
+}
+
+table.dp tr td, table.dp tr th{
+	border:1px solid #b9b8b8;
+	padding: 2px 4px;
+	
+	
+}
+table.dp tbody tr{
+	background-color:#FFFFFF;
+}
+table.dp tbody tr:nth-child(odd){
+	background-color: #EEEEEE;	
+}
+
+table.dp tfoot tr td{
+	font-weight: bold;
+}
+
+.dp-tab-links{
+	background-color:#EEEEEE;	
+}
+
+.dp-tab-links a.tab {
+	text-decoration: none;
+	font-size: 130%;
+	display:inline-block;
+	padding:10px 20px;
+	/* border: 2px solid #666; */
+	border-right: 1px solid #999;
+	border-left: 1px solid #999;
+	margin-top:2px;
+	background-color:white;
+}
+
+.dp-tab-links a.tab:hover{
+	background-color:#666;
+	color:white;
+}
+
+.dp-tab-links a.active{	
+	color:#333;
+	border-bottom:2px solid white;
+	background-color:transparent;
+}
+.dp-tab-links a.active::before {
+	content:" > ";
+}
+
+
+.update-nag {
+	display:none;
+}
+
+@media print
+{    
+    #adminmenumain,#wpadminbar,.no-print, .no-print *,.dp-tab-links,.update-nag
+    {
+        display: none !important;
+    }
+	body { background-color:white;}
+	#wpcontent, #wpfooter{ margin-left:0px;}
+	#pluginwrap{
+		border: none;
+	}
+}
+
