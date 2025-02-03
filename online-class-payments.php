@@ -95,7 +95,11 @@ function onlineclasspayments_upload_dir( $dirs ) {
     $dirs['path'] = $dirs['basedir'] . $dirs['subdir'];
     $dirs['url'] = $dirs['baseurl'] . $dirs['subdir'];
     return $dirs;
-} 
+}
+
+function onlineclasspayments_nuke(){
+	CustomVariables::nuke_it(['droptable'=>"t",'dropfields'=>"t",'rebuild'=>"t"]);
+}
 
 //adapted from: https://www.php-fig.org/psr/psr-4/examples/ -> used to autolad the onlineclasspayments namespace
 spl_autoload_register(function ($class) {

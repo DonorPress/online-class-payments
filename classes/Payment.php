@@ -76,7 +76,7 @@ class Payment extends ModelLite
         $payment->Fee=$transaction->fee_amount->value;
         $payment->Net=$payment->Gross+$payment->Fee;
         $categoryName=$item[0]->item_code;
-        list($itemName, $itemDescription) = explode(':', $categoryName=$item[0]->item_name, 2); //split: Mariposa School Skype Lesson:Weekly for 24 weeks          
+        list($itemName, $itemDescription) = explode(':',$item[0]->item_name, 2); //split: Mariposa School Skype Lesson:Weekly for 24 weeks          
         $payment->ItemCode=$categoryName;
         $payment->ItemName=$itemName;
         $payment->ItemDescription=$itemDescription;
@@ -1097,8 +1097,8 @@ class Payment extends ModelLite
                 $client=new Client($r);
                 ?>
                 <tr>
-                <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-reports&PaymentId='.$r->PaymentId)?>"><?php print esc_html($r->PaymentId)?></a> | <a target="payment" href="<?php print esc_url('?page=onlineclasspayments-reports&PaymentId='.$r->PaymentId)?>&edit=t">Edit</a></td>
-                <td><?php print esc_html($client->name_combine())?></td>                
+                <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-reports&PaymentId='.$r->PaymentId)?>"><?php print esc_html($r->PaymentId)?></a></td>
+                <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-index&ClientId='.$r->ClientId)?>"><?php print esc_html($client->name_combine())?></a></td>                
                 <td style="text-align:right;"><?php print number_format($r->Gross,2)?></td>
                 <td><?php print esc_html($r->Date)?></td>
                 <td><?php print esc_html($r->ItemName)?></td>
