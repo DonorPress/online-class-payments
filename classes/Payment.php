@@ -977,7 +977,7 @@ class Payment extends ModelLite
                 <button type="submit" name="Function" value="SendPaymentReceipt">Send E-mail Receipt</button> 
                 <button type="submit" name="Function" value="PaymentReceiptPdf">Generate PDF</button>                  
             </div>
-            <div><a target='pdf' href='<?php print esc_url('?page=onlineclasspayments-settings&tab=email&PaymentTemplateId='.$this->emailBuilder->pageID.'&edit=t')?>'>Edit Template</a> | <a href="<?php print esc_url('?page=onlineclasspayments-reports&PaymentId='.$this->PaymentId)?>&resetLetter=t">Reset Letter</a></div>
+            <div><a target='pdf' href='<?php print esc_url('?page=onlineclasspayments-settings&tab=email&PaymentTemplateId='.$this->emailBuilder->pageID.'&edit=t')?>'>Edit Template</a> | <a href="<?php print esc_url('?page=onlineclasspayments-index&PaymentId='.$this->PaymentId)?>&resetLetter=t">Reset Letter</a></div>
             <div style="font-size:18px;"><strong>Email Subject:</strong> <input style="font-size:18px; width:500px;" name="EmailSubject" value="<?php print esc_attr($subject);?>"/>
             <?php wp_editor($bodyContent, 'customMessage',array("media_buttons" => false,"wpautop"=>false)); ?>
         </form>
@@ -1097,7 +1097,7 @@ class Payment extends ModelLite
                 $client=new Client($r);
                 ?>
                 <tr>
-                <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-reports&PaymentId='.$r->PaymentId)?>"><?php print esc_html($r->PaymentId)?></a></td>
+                <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-index&PaymentId='.$r->PaymentId)?>"><?php print esc_html($r->PaymentId)?></a></td>
                 <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-index&ClientId='.$r->ClientId)?>"><?php print esc_html($client->name_combine())?></a></td>                
                 <td style="text-align:right;"><?php print number_format($r->Gross,2)?></td>
                 <td><?php print esc_html($r->Date)?></td>

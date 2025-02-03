@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		## automatically run on first load of page if it hasn't run yet this day.	
 		if ($paypalLastSyncDate<date("Y-m-d") || Client::input('paypalcheck','get')){
 			$paypal = new Paypal();
-			$paypal->syncDateResponse($paypalLastSyncDate?$paypalLastSyncDate:date("Y-m-d",strtotime("-3 month")));
+			$paypal->syncDateResponse($paypalLastSyncDate?date("Y-m-d",strtotime($paypalLastSyncDate)-60*60*24):date("Y-m-d",strtotime("-3 month")));
 		}
 	}
 	?>
