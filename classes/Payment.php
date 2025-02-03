@@ -1076,7 +1076,7 @@ class Payment extends ModelLite
 
 		$SQL="Select DT.PaymentId,D.ClientId, D.Name, D.Name2,`Email`,EmailStatus,Address1,City, DT.`Date`,DT.DateDeposited,DT.Gross,DT.TransactionID,DT.ItemCode,DT.ItemName,DT.ItemDescription,DT.ItemQuantity,DT.Note,DT.PaymentSource,DT.Type ,DT.Source,DT.CategoryId,DT.TransactionType
         FROM ".Client::get_table_name()." D INNER JOIN ".self::get_table_name()." DT ON D.ClientId=DT.ClientId 
-        WHERE ".implode(" AND ",$where)." Order BY ".$dateField.",DT.Date,PaymentId ".($top?" LIMIT ".$top:""); 
+        WHERE ".implode(" AND ",$where)." Order BY ".$dateField." DESC,PaymentId ".($top?" LIMIT ".$top:""); 
 		//print "<pre>".$SQL."</pre>";     
         $results = self::db()->get_results($SQL);
 		if (Client::input('Function','get')=="PaymentListCsv"){

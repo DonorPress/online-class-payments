@@ -2,7 +2,7 @@
 /*
 Plugin Name: Online Class Payment
 Description: A plugin to track paypal payments made for Online Classes
-Version: 0.1
+Version: 0.1.1
 Author: Denver Steiner
 */
 
@@ -48,7 +48,7 @@ function onlineclasspayments_plugin_create_menu_entry() {
     // adding the main manu entry
     add_menu_page('Online Classes', 'Online Classes', 'edit_posts', 'onlineclasspayments-index', 'onlineclasspayments_show_index', $icon);
     // adding the sub menu entry
-    add_submenu_page( 'onlineclasspayments-index', 'Reports', 'Reports', 'edit_posts', 'onlineclasspayments-reports', 'onlineclasspayments_show_reports',2 );	
+    // add_submenu_page( 'onlineclasspayments-index', 'Reports', 'Reports', 'edit_posts', 'onlineclasspayments-reports', 'onlineclasspayments_show_reports',2 );	
 
     if (Paypal::is_setup()) add_submenu_page( 'onlineclasspayments-index', 'Paypal', 'Paypal', 'edit_posts', 'onlineclasspayments-paypal', 'onlineclasspayments_show_paypal',4);
     add_submenu_page( 'onlineclasspayments-index', 'Settings', 'Settings', 'edit_posts', 'onlineclasspayments-settings', 'onlineclasspayments_show_settings',5);
