@@ -1091,10 +1091,12 @@ class Payment extends ModelLite
 			}
             return self::resultToCSV($results,array('name'=>'Payments_'.$fileName,'namecombine'=>true));
 		}else{
+            $total=0;
             ?><table class="dp"><tr><th>PaymentId</th><th>Name</th><th>Amount</th><th>Date</th><th>Item Name</th><th>Item Description</th><th>Note</th><th>Transaction</th></tr><?php
             foreach ($results as $r){
                 $payment=new self($r);
                 $client=new Client($r);
+                $total+=$r->Gross;
                 ?>
                 <tr>
                 <td><a target="payment" href="<?php print esc_url('?page=onlineclasspayments-index&PaymentId='.$r->PaymentId)?>"><?php print esc_html($r->PaymentId)?></a></td>
@@ -1108,7 +1110,11 @@ class Payment extends ModelLite
                 </tr>
                 <?php
             }
-            ?></table>
+            ?>
+            <tfoot>
+                <tr><td colspan="2">Total:</td><td style="text-align:right;"><?php print number_format($total,2)?></td><td colspan="5"></td></tr>
+            </tfoot>           
+            </table>
             <?php           
         }	
     }
