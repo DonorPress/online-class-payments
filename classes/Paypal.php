@@ -228,6 +228,10 @@ class Paypal extends ModelLite{
         }
     }
     function syncDateResponse($from,$to=null){
+        $PHPMemory=CustomVariables::get_option('PHPMemory');
+        if ($PHPMemory && is_numeric($PHPMemory)){
+            ini_set('memory_limit', $PHPMemory.'M');
+        }
         if (!$to) $to=date("Y-m-d");   
         $response=$this->get_transactions_date_range($from,$to);
         $process=$this->process_response($response,$to);        

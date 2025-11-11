@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class CustomVariables extends ModelLite
 {  
     const base = 'onlineclasspayments';
-    const variables = ["Organization","ContactName","ContactTitle","ContactEmail","PaypalLastSyncDate","DefaultCountry"];	
+    const variables = ["Organization","ContactName","ContactTitle","ContactEmail","PaypalLastSyncDate","DefaultCountry","PHPMemory"];	
     const variables_protected = ["PaypalClientId","PaypalSecret"];
 
     const variables_manual=[];
